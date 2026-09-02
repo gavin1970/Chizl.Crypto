@@ -14,16 +14,16 @@ namespace NUnitTests
         /// <returns>the total of failed tests across all tests ran. (only seen when ran from a command prompt)</returns>
         static int Main(string[] args)
         {
-            var AES = false;
+            var GCM = false;
             var HMAC = false;
 
             if (args.Length == 1)
             {
                 foreach (var arg in args.Select(s => s.ToLower()))
                 {
-                    if (arg.Equals("--aes"))
+                    if (arg.Equals("--gcm"))
                     {
-                        AES = true;
+                        GCM = true;
                         break;
                     }
                     else if (arg.Equals("--hmac"))
@@ -34,7 +34,7 @@ namespace NUnitTests
                     else if (arg.Equals("--all"))
                     {
                         HMAC = true;
-                        AES = true;
+                        GCM = true;
                         break;
                     }
                     else if (arg.Equals("--help") || arg.Equals("-?"))
@@ -46,7 +46,7 @@ namespace NUnitTests
             }
             else
             {
-                AES = true;
+                GCM = true;
                 HMAC = true;
             }
 
@@ -54,14 +54,14 @@ namespace NUnitTests
             var assembly = typeof(Program).GetTypeInfo().Assembly;
             int totalFailedTests = 0;
 
-            if (AES)
+            if (GCM)
             {
                 // 1. Run AES tests first
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("=== Starting AES Tests ===");
+                Console.WriteLine("=== Starting AES-GCM Tests ===");
                 Console.ResetColor();
 
-                totalFailedTests += new AutoRun(assembly).Execute(new[] { "--where", "cat == AES" });
+                totalFailedTests += new AutoRun(assembly).Execute(new[] { "--where", "cat == GCM" });
 
                 // Pause between categories
                 Console.ForegroundColor = ConsoleColor.Cyan;
@@ -74,7 +74,7 @@ namespace NUnitTests
             {
                 // 2. Run HMAC tests next
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("=== Starting HMAC Tests ===");
+                Console.WriteLine("=== Starting AES /w HMAC Tests ===");
                 Console.ResetColor();
 
                 totalFailedTests += new AutoRun(assembly).Execute(new[] { "--where", "cat == HMAC" });
@@ -92,12 +92,13 @@ namespace NUnitTests
 
         static void ShowHelp()
         {
-            //"--all"
-            //"--aes"
-            //"--hmac"
-            //"--help"
-            //"-h"
-            //"-?"
+            Console.WriteLine();
+            Console.WriteLine("--all\tRuns all NUnit tests.  This is default, when not passing any arguments.");
+            Console.WriteLine("--gcm\tRuns only aes-gcm NUnit tests.");
+            Console.WriteLine("--hmac\tRuns only aes w/ hmac NUnit tests.");
+            Console.WriteLine();
+            Console.WriteLine("--help, -?\tShows this argument screen.");
+            Console.WriteLine();
         }
     }
 }

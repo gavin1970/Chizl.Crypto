@@ -8,7 +8,7 @@ namespace NUnitTests
     {
         [TestCase("This is a test string to be encrypted.", "P@$$w0rd", "P@$$w0rd", true, true)]            // positive testing, valid password
         [TestCase("This is a test string to be encrypted.", "P@$$w0rd", "Passw0rd", true, false)]           // negative testing, invalid decrypt password
-        [Category("AES")]
+        [Category("GCM")]
         public async Task EncAndDecBoolReturn(string testString, string encPass, string decPass, bool encExpectedResult, bool decExpectedResult)
         {
             var gcm = new AesGcmVault();
@@ -39,7 +39,7 @@ namespace NUnitTests
 
         [TestCase("This is a test string to be encrypted.", "P@$$w0rd", "P@$$w0rd", true, true)]            // positive testing, valid password
         [TestCase("This is a test string to be encrypted.", "P@$$w0rd", "Passw0rd", true, false)]           // negative testing, invalid decrypt password
-        [Category("AES")]
+        [Category("GCM")]
         public async Task EncAndDecStringReturn(string testString, string encPass, string decPass, bool encExpectedResult, bool decExpectedResult)
         {
             var gcm = new AesGcmVault();

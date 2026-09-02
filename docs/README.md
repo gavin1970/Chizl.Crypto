@@ -85,6 +85,33 @@ This construction manually composes encryption and authentication following the 
 
 ---
 
+## Usage Examples (C#)
+
+```csharp
+using Chizl.Crypto;
+
+string testString = "This is a test string to be encrypted.";
+string pass = "P@$$w0rd";
+
+// Instantiate the vault
+var gcmEnc = new AesGcmVault();
+// Encrypt the test string using the password, if successful, return the encrypted data; otherwise, throw an exception with the last error message.
+if (gcmEnc.Encrypt(testString, pass.AsSpan(), out string? encryptedData))
+    return encryptedData;
+else
+    throw new Exception($"Encryption failed: {gcmEnc.LastError?.Message}");
+
+// Instantiate the vault for decryption
+var gcmDec = new AesGcmVault();
+// Decrypt the encrypted data using the password, if successful, return the decrypted data; otherwise, throw an exception with the last error message.
+if (gcmDec.Decrypt(encryptedData, pass.AsSpan(), out string? decryptedData))
+    return decryptedData; 
+else
+    throw new Exception($"Encryption failed: {gcmEnc.LastError?.Message}");
+```
+
+--- 
+
 ## Usage Examples (Python)
 
 > pip install pythonnet
