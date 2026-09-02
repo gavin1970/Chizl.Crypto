@@ -120,7 +120,7 @@ password = "SuperSecurePassword123!"
 # LastError is cleared on entry then set if a failure occurs.
 encrypted = vault.Encrypt("Top-secret payload from Python", password)
 
-if encrypted:
+if encrypted is None:
     print(f"Encrypted: {encrypted}")
 
     # Decrypt the payload
