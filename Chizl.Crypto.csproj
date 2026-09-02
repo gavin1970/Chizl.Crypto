@@ -14,8 +14,8 @@
 				<Copyright>© 2026 chizl.com</Copyright>
 				<PackageTags>aes;gcm;hvac;sha256;galois;lightweight;net8</PackageTags>
 				<AssemblyVersion>6.0.0.0</AssemblyVersion>
-				<Version>6.9.2.0</Version>
-				<FileVersion>6.9.2.1922</FileVersion>
+				<Version>6.9.2.1</Version>
+				<FileVersion>6.9.2.2108</FileVersion>
 
 				<!-- NuGet Package Metadata -->
 				<PackageReadmeFile>README.md</PackageReadmeFile>
@@ -31,6 +31,7 @@
 
 		<ItemGroup>
 				<None Include="docs\README.md" Pack="true" PackagePath="\" />
+				<None Include="docs\LICENSE.md" Pack="true" PackagePath="\" />
 				<None Include="docs\NUnitTest.png" Pack="true" PackagePath="\" />
 				<None Include="docs\ChizlCrypto64.png" Pack="true" PackagePath="\" /> 
 		</ItemGroup>

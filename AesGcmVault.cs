@@ -1,6 +1,7 @@
 ﻿namespace Chizl.Crypto;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -86,7 +87,7 @@ public class AesGcmVault
     /// <see langword="true"/> when successfully encrypted.<br/>
     /// <see langword="false"/> if encryption failed and LastError holds it's exeception.
     /// </returns>
-    public bool Encrypt(string plainText, ReadOnlySpan<char> masterPassword, out string? encryptedString)
+    public bool Encrypt(string plainText, ReadOnlySpan<char> masterPassword, [NotNullWhen(true)] out string? encryptedString)
     {
         int plainByteCount = Encoding.UTF8.GetByteCount(plainText);
         int totalSize = SaltSize + NonceSize + TagSize + plainByteCount;
@@ -162,7 +163,7 @@ public class AesGcmVault
     /// <see langword="true"/> when successfully decrypted.<br/>
     /// <see langword="false"/> if decrypted failed and LastError holds it's exeception.
     /// </returns>
-    public bool Decrypt(string base64Payload, ReadOnlySpan<char> masterPassword, out string? decryptedString)
+    public bool Decrypt(string base64Payload, ReadOnlySpan<char> masterPassword, [NotNullWhen(true)] out string? decryptedString)
     {
         byte[] packed = Convert.FromBase64String(base64Payload);
         ReadOnlySpan<byte> packedSpan = packed.AsSpan();

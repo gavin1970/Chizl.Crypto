@@ -1,5 +1,13 @@
 # Chizl.Crypto
 
+[![NuGet Version](https://img.shields.io/nuget/v/Chizl.Crypto.svg)](https://www.nuget.org/packages/Chizl.Crypto/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/gavin1970/Chizl.Crypto/blob/master/LICENSE.md)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Chizl.Crypto)](https://www.nuget.org/packages/Chizl.Crypto/)<br/>
+[![Target Frameworks](https://img.shields.io/badge/target%20frameworks-net8.0%20%7C%20net9.0%20%7C%20net10.0-purple)](https://dotnet.microsoft.com/)
+
+
+https://www.nuget.org/packages/Chizl.Crypto
+
 > This library provides production-grade implementations of two robust authenticated encryption paradigms: **AES-GCM** (Galois/Counter Mode) and **AES with HMAC-SHA256** (Encrypt-then-MAC).
 
 ## Symmetric Cryptography: AES-GCM vs. AES with HMAC-SHA256
@@ -96,7 +104,7 @@ string pass = "P@$$w0rd";
 // Instantiate the vault
 var gcmEnc = new AesGcmVault();
 // Encrypt the test string using the password, if successful, return the encrypted data; otherwise, throw an exception with the last error message.
-if (gcmEnc.Encrypt(testString, pass.AsSpan(), out string? encryptedData))
+if (gcmEnc.Encrypt(testString, pass.AsSpan(), out var encryptedData))
     return encryptedData;
 else
     throw new Exception($"Encryption failed: {gcmEnc.LastError?.Message}");
@@ -104,10 +112,10 @@ else
 // Instantiate the vault for decryption
 var gcmDec = new AesGcmVault();
 // Decrypt the encrypted data using the password, if successful, return the decrypted data; otherwise, throw an exception with the last error message.
-if (gcmDec.Decrypt(encryptedData, pass.AsSpan(), out string? decryptedData))
+if (gcmDec.Decrypt(encryptedData, pass.AsSpan(), out var decryptedData))
     return decryptedData; 
 else
-    throw new Exception($"Encryption failed: {gcmEnc.LastError?.Message}");
+    throw new Exception($"Decryption failed: {gcmDec.LastError?.Message}");
 ```
 
 --- 
@@ -141,7 +149,7 @@ password = "SuperSecurePassword123!"
 # In pythonnet, 'out' parameters are returned as a tuple: (result, out_param1, ...)
 # The Signature for bool return has a required second parameter that isn't supported by Python
 # bool Encrypt(string, ReadOnlySpan<char>, out string)
---------------
+# --------------
 # In this example we use the a more simple approach and the return
 # the value as an encrypted string or null if an error occurs.  
 # LastError is cleared on entry then set if a failure occurs.
