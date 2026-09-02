@@ -5,9 +5,6 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Chizl.Crypto)](https://www.nuget.org/packages/Chizl.Crypto/)<br/>
 [![Target Frameworks](https://img.shields.io/badge/target%20frameworks-net8.0%20%7C%20net9.0%20%7C%20net10.0-purple)](https://dotnet.microsoft.com/)
 
-
-https://www.nuget.org/packages/Chizl.Crypto
-
 > This library provides production-grade implementations of two robust authenticated encryption paradigms: **AES-GCM** (Galois/Counter Mode) and **AES with HMAC-SHA256** (Encrypt-then-MAC).
 
 ## Symmetric Cryptography: AES-GCM vs. AES with HMAC-SHA256
