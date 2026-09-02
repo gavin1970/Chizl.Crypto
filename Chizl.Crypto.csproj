@@ -1,13 +1,44 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-  </PropertyGroup>
+		<PropertyGroup>
+				<TargetFramework>net8.0</TargetFramework>
+				<ImplicitUsings>disable</ImplicitUsings>
+				<Nullable>enable</Nullable>
+				<EnforceCodeStyleInBuild>False</EnforceCodeStyleInBuild>
+		</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="tests\**" />
-    <EmbeddedResource Remove="tests\**" />
-    <None Remove="tests\**" />
-  </ItemGroup>
+		<PropertyGroup>
+				<Authors>Chizl</Authors>
+				<PackageId>Chizl.Crypto</PackageId>
+				<Company>Chizl.com</Company>
+				<Copyright>© 2026 chizl.com</Copyright>
+				<PackageTags>aes;gcm;hvac;sha256;galois;lightweight;net8</PackageTags>
+				<AssemblyVersion>6.0.0.0</AssemblyVersion>
+				<Version>6.9.2.0</Version>
+				<FileVersion>6.9.2.1922</FileVersion>
+
+				<!-- NuGet Package Metadata -->
+				<PackageReadmeFile>README.md</PackageReadmeFile>
+				<Description>This library provides two robust production-grade implementations of authenticated encryption paradigms: AES-GCM (Galois/Counter Mode) and AES with HMAC-SHA256 (Encrypt-then-MAC).</Description>
+				<PackageProjectUrl>https://github.com/gavin1970/Chizl.Crypto</PackageProjectUrl>
+				<RepositoryUrl>https://github.com/gavin1970/Chizl.Crypto</RepositoryUrl>
+				<RepositoryType>git</RepositoryType>
+				<PackageLicenseExpression>MIT</PackageLicenseExpression>
+				<PackageIcon>ChizlCrypto64.png</PackageIcon>
+				<PackageReleaseNotes>See https://github.com/gavin1970/Chizl.Crypto/releases</PackageReleaseNotes>
+				<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		</PropertyGroup>
+
+		<ItemGroup>
+				<None Include="docs\README.md" Pack="true" PackagePath="\" />
+				<None Include="docs\NUnitTest.png" Pack="true" PackagePath="\" />
+				<None Include="docs\ChizlCrypto64.png" Pack="true" PackagePath="\" /> 
+		</ItemGroup>
+
+		<ItemGroup>
+				<Compile Remove="tests\**" />
+				<EmbeddedResource Remove="tests\**" />
+				<None Remove="tests\**" />
+		</ItemGroup>
 
 </Project>
