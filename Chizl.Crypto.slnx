@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/Solution Items/" />
+  <Project Path="Chizl.Crypto.csproj" />
+  <Project Path="tests/NUnitTests/NUnitTests.csproj" Id="6d5497e4-c90c-4b9e-b0ca-dde87f205133" />
+</Solution>

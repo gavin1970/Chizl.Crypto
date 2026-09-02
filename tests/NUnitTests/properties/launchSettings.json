@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "NUnitTests": {
+      "commandName": "Project",
+      "commandLineArgs": "--where \"test == NUnitTests.AesGcmStringTests.EncAndDec\" --wait"
+    }
+  },
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ]
+}
