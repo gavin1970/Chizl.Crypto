@@ -1,7 +1,7 @@
 # Chizl.Crypto
 
 [![NuGet Version](https://img.shields.io/nuget/v/Chizl.Crypto.svg)](https://www.nuget.org/packages/Chizl.Crypto/)
-[![License: MIT](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/gavin1970/Chizl.Crypto/blob/master/LICENSE.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/gavin1970/Chizl.Crypto/blob/master/docs/LICENSE.md)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Chizl.Crypto)](https://www.nuget.org/packages/Chizl.Crypto/)<br/>
 [![Target Frameworks](https://img.shields.io/badge/target%20frameworks-net8.0%20%7C%20net9.0%20%7C%20net10.0-purple)](https://dotnet.microsoft.com/)
 
