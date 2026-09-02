@@ -87,7 +87,7 @@ This construction manually composes encryption and authentication following the 
 
 ## Usage Examples (Python)
 
->> pip install pythonnet
+> pip install pythonnet
 
 ### Example A: AES-256-GCM
 
