@@ -15,7 +15,8 @@ Both primitives guarantee **confidentiality** (preventing unauthorized parties f
 
 ## Project Includes
 1. No dependencies on external libraries or NuGet packages; all cryptography is implemented using .NET's built-in `System.Security.Cryptography` namespace.
-1. NUnit test coverage for both AES-GCM and AES with HMAC-SHA256 implementations, including edge cases and failure scenarios.  NUnit for this project is also setup to run by pressing F5 in Visual Studio, instead of having to run a separate test runner. [Test Results](NUnitTest.png)
+1. NUnit test coverage for both AES-GCM and AES with HMAC-SHA256 implementations, including edge cases and failure scenarios.  NUnit for this project is also setup to run by pressing F5 in Visual Studio, instead of having to run a separate test runner. [Test Results](NUnitTest.png).
+1. When ran at the same time, both AES-GCM and AES with HMAC-SHA256, both test results will show up in the TestResult.xml
 
 ---
 

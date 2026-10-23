@@ -54,34 +54,50 @@ namespace NUnitTests
             var assembly = typeof(Program).GetTypeInfo().Assembly;
             int totalFailedTests = 0;
 
-            if (GCM)
+            // if both tests, then running all, will show all results in TestResult.xml
+            // if separated, TestResult.xml will be overwritten by the last run.
+            if (GCM && HMAC)
             {
-                // 1. Run AES tests first
+                // Run AES and HMAC tests 
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("=== Starting AES-GCM and AES-GCM Tests ===");
+                Console.ResetColor();
+
+                totalFailedTests += new AutoRun(assembly).Execute(new[] { "--where", "cat == GCM || cat == HMAC" });
+
+                // Pause to show results
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"\n>>> AES GCM and HMAC Categories Complete. Press any key to close execution...");
+                Console.ResetColor();
+                Console.ReadKey(true);
+            }            
+            else if (GCM)
+            {
+                // Run AES tests first
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("=== Starting AES-GCM Tests ===");
                 Console.ResetColor();
 
                 totalFailedTests += new AutoRun(assembly).Execute(new[] { "--where", "cat == GCM" });
 
-                // Pause between categories
+                // Pause to show results
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"\n>>> AES Category Complete. Press any key to {(HMAC ? "coninue to HMAC" : "close execution")}...");
+                Console.WriteLine($"\n>>> AES-GCM Category Complete. Press any key to close execution...");
                 Console.ResetColor();
                 Console.ReadKey(true);
-            }
-
-            if (HMAC)
+            }            
+            else if (HMAC)
             {
-                // 2. Run HMAC tests next
+                // Run HMAC tests next
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("=== Starting AES /w HMAC Tests ===");
                 Console.ResetColor();
 
                 totalFailedTests += new AutoRun(assembly).Execute(new[] { "--where", "cat == HMAC" });
 
-                // Final wrap up
+                // Pause to show results
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("\nAll test categories completed. Press any key to close execution...");
+                Console.WriteLine("\n>>> AES HMAC Category Complete. Press any key to close execution...");
                 Console.ResetColor();
                 Console.ReadKey(true);
             }
